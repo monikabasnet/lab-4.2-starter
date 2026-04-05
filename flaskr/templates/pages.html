@@ -5,12 +5,16 @@ Wiki Pages
 {% endblock %}
 
 {% block content %}
-<h3>Pages contained in this Wiki</h3>
-<ul>
-    {% for page in all_pages %}
-    <li><a href="{{ url_for('pages', name=page) }}">{{page}}</a></li>
-    {% endfor %}
-</ul>
+<!-- CHANGE: Improved page list layout so the content uses space more effectively -->
+<section class="content-section">
+    <h2>Pages contained in this Wiki</h2>
 
+    <ul class="page-list">
+        {% for page in all_pages %}
+        <li>
+            <a href="{{ url_for('pages', name=page) }}">{{ page }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 {% endblock %}
-

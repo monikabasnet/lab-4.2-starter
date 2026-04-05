@@ -1,36 +1,35 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <head>
-        <title>{% block page_name %}{{ page_name }}{% endblock %}</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    </head>
+    <!--  added a clean, accessible base layout -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block page_name %}{{ page_name }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-    <!-- The below tag is using Bulma CSS. Try replacing line 14 with line 13. -->
-    <!-- <div class="has-text-success-dark is-size-4  has-text-weight-medium"> -->
-    <div>
-        <a href="{{ url_for('home') }}">
-            Home
-        </a>
-        &nbsp;&nbsp;
-        <a href="{{ url_for('all_pages') }}">
-            Pages
-        </a>
-        &nbsp;&nbsp;
-        <a href="{{ url_for('about') }}">
-            About
-        </a>
-    </div>
+    <!--  Added a full page wrapper to improve spacing and make the layout more balanced -->
+    <div class="page-shell">
+        <header class="site-header">
+            <div>
+                <h1 class="site-title">Cats on Skis</h1>
+                <p class="site-tagline">A playful wiki about our favorite winter athletes</p>
+            </div>
 
-    <!-- The below tag is using Bulma CSS. Try replacing line 30 with line 29. -->
-    <!-- <div class="content"> -->
-    <div>
-        {% block content %}{{ page_content }}{% endblock %}
-    </div>
+            <!-- Improved navigation spacing and visual clarity -->
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('all_pages') }}">Pages</a>
+                <a href="{{ url_for('about') }}">About</a>
+            </nav>
+        </header>
 
+        <!--  Main content is now centered in a cardlike container for better use of space -->
+        <main class="content-card">
+            {% block content %}{{ page_content }}{% endblock %}
+        </main>
+    </div>
 </body>
-
 </html>

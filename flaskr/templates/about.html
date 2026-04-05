@@ -5,18 +5,28 @@ About Cats on Skis
 {% endblock %}
 
 {% block content %}
-<h3>About Cats on Skis</h3>
+<!--clearer sections with better spacing and readable structure -->
+<section class="content-section">
+    <h2>About Cats on Skis</h2>
+    <p>
+        We love Cats on Skis! This is the best place to find information about cats on skis.
+    </p>
+</section>
 
-<p>
-We love Cats on Skis! This is the absolute best place to find information about cats on skis.
-</p>
+<section class="content-section">
+    <h2>Your Authors</h2>
 
-<h3>Your Authors</h3>
+    <div class="author-card">
+        <div>
+            <h3>Slalom Sammy</h3>
+            <p>Lead cat reporter and expert downhill skier.</p>
+        </div>
 
-<p>
-Slalom Sammy 
-<img src="{{ url_for('images', image='slalom-sammy') }}">
-</p>
-
+        <img
+            class="author-image"
+            src="{{ url_for('images', image='slalom-sammy') }}"
+            alt="Slalom Sammy, a cat on skis"
+        >
+    </div>
+</section>
 {% endblock %}
-
